@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+    <p><a href="/sivu1">sivu1</a> | <a href="/sivu2">sivu2</a> |
+      <a href="/logout">logout</a></p>
+    <h1><%= title %></h1>
+    <p>Session id on <%= sessid %></p>
+    <!--Haetaan routerin kauttaa dataa kannasta tähän-->
+    <h2>Opiskelijat</h2>
+    <ul>
+      <!--<% %> -Это синтаксис ejs-->
+      <% students.forEach(student =>{%>
+      <li><%= student.name %> - <%= student.email %></li>
+      <% student.grades.forEach(grade => { %>
+        <li><%= grade.coursecode %> - <%= grade.grade %></li>
+        <% }); %>
+        <br>
+        <% }); %>
+    </ul> 
+   
+  </body>
+</html>
